@@ -1,0 +1,48 @@
+{% extends 'movies/base.html' %}
+
+{% block content %}
+    <h2>
+        {% if current_genre %}
+            Жанр: {{ current_genre.name }}
+        {% else %}
+            Все фильмы
+        {% endif %}
+    </h2>
+
+    <div class="categories-bar">
+        <a href="{% url 'movies:movie_list' %}{% if query %}?q={{ query }}{% endif %}"
+           class="category-btn {% if not current_genre %}active{% endif %}">
+            Все
+        </a>
+        {% for g in genres %}
+            <a href="?genre={{ g.id }}{% if query %}&q={{ query }}{% endif %}"
+               class="category-btn {% if current_genre and current_genre.id == g.id %}active{% endif %}">
+                {{ g.name }}
+            </a>
+        {% endfor %}
+    </div>
+
+    {% if query %}
+        <p class="search-info">Результаты поиска по запросу: "<strong>{{ query }}</strong>"</p>
+    {% endif %}
+
+    <div class="movie-grid">
+        {% for movie in movies %}
+            <div class="movie-card">
+                <a href="{% url 'movies:movie_detail' movie.pk %}">
+                    {% if movie.poster %}
+                        <img src="{{ movie.poster.url }}" alt="{{ movie.title }}">
+                    {% else %}
+                        <div style="height:300px; background:#ccc; display:flex; align-items:center; justify-content:center; border-radius:4px;">
+                            Нет постера
+                        </div>
+                    {% endif %}
+                    <h3>{{ movie.title }}</h3>
+                </a>
+                <p>{{ movie.release_year }} | {{ movie.genre.name }}</p>
+            </div>
+        {% empty %}
+            <p>Фильмы не найдены.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

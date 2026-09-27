@@ -1,0 +1,9 @@
+<svg width="42" height="42" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+    <rect x="4" y="26" width="56" height="34" fill="#e50914" rx="3"/>
+    <rect x="4" y="14" width="56" height="14" fill="#1a1a1a" rx="3"/>
+    <polygon points="8,14 20,14 8,28 0,28" fill="#fff" transform="translate(4,0)"/>
+    <polygon points="24,14 36,14 24,28 12,28" fill="#fff" transform="translate(4,0)"/>
+    <polygon points="40,14 52,14 40,28 28,28" fill="#fff" transform="translate(4,0)"/>
+    <polygon points="56,14 68,14 56,28 44,28" fill="#fff" transform="translate(4,0)"/>
+    <text x="32" y="50" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle" font-family="Arial">CINEMA</text>
+</svg>

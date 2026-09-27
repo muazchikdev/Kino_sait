@@ -1,0 +1,159 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>3D Кино — {% block title %}Главная{% endblock %}</title>
+</head>
+<body>  
+    <header>
+        <div class="container">
+            <img src="{% static 'js/logo.svg' %}" alt="Кинотека" width="42" height="42">
+            <a href="{% url 'movies:movie_list' %}">Все фильмы</a>
+            <nav>
+                <form method="get" action="{% url 'movies:movie_list' %}">
+                    <input type="text" name="q" placeholder="Поиск фильмов..." value="{{ query|default:'' }}">
+                    <button type="submit">Найти</button>
+                </form>
+                
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Кино сайт. Создано в Prolab.</p>
+    </footer>
+</body>
+</html>
+    <style>
+        *{
+
+            text-decoration:none;
+            
+            a {
+                color :white;
+            }
+        }           
+                .categories-bar {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 10px;
+                    margin: 20px 0 25px;
+                    padding-bottom: 15px;
+                    border-bottom: 1px solid #ddd;
+                }
+
+                .category-btn {
+                    display: inline-block;
+                    padding: 8px 20px;
+                    background: #fff;
+                    color: #333;
+                    text-decoration: none;
+                    border-radius: 20px;
+                    border: 1px solid #ccc;
+                    font-size: 0.95rem;
+                    transition: all .2s;
+                    cursor: pointer;
+                }
+
+                .category-btn:hover {
+                    background: #f0f0f0;
+                    border-color: #e50914;
+                    color: #e50914;
+                }
+
+                .category-btn.active {
+                    background: #e50914;
+                    color: #fff;
+                    border-color: #e50914;
+                    font-weight: bold;
+                }
+
+                .search-info {
+                    margin-bottom: 15px;
+                    color: #555;
+                }
+                    header .container {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+            .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+            .logo-text { color: #fff; font-size: 1.4rem; font-weight: bold; letter-spacing: 1px; }
+
+            .genres-nav {
+                display: flex;
+                gap: 8px;
+                flex-wrap: wrap;
+                flex: 1;
+                justify-content: center;
+            }
+            .genre-link {
+                color: #ddd;
+                text-decoration: none;
+                padding: 6px 14px;
+                border-radius: 20px;
+                font-size: 0.9rem;
+                border: 1px solid transparent;
+                transition: all .2s;
+                white-space: nowrap;
+            }
+            .genre-link:hover {
+                color: #fff;
+                border-color: #e50914;
+            }
+            .genre-link.active {
+                background: #e50914;
+                color: #fff;
+            }
+
+            .search-form { display: flex; gap: 8px; }
+            .search-form input[type="text"] {
+                padding: 8px; width: 220px; border: none; border-radius: 4px;
+            }
+            .search-form button {
+                padding: 8px 18px; background: #e50914; color: #fff;
+                border: none; border-radius: 4px; cursor: pointer;
+            }
+            .search-form button:hover { background: #b8070f; }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #fff;
+        }       
+        .logo-text {
+            font-size: 1.6rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #fff;
+        }
+        * { box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; margin: 0; background: #f4f4f4; }
+        header { background: #1a1a1a; color: #fff; padding: 1rem; }
+        header .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        header h1 { margin: 0; }
+        header h1 a { color: #fff; text-decoration: none; }
+        nav form { display: flex; gap: 8px; }
+        nav input[type="text"] { padding: 8px; width: 280px; border: none; border-radius: 4px; }
+        nav button { padding: 8px 18px; background: #e50914; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+        nav button:hover { background: #b8070f; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        main { max-width: 1200px; margin: 20px auto; padding: 0 20px; min-height: 60vh; }
+        .movie-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+        .movie-card { background: #fff; padding: 10px; border-radius: 6px; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: transform .2s; }
+        .movie-card:hover { transform: translateY(-4px); }
+        .movie-card a { text-decoration: none; color: #222; }
+        .movie-card img { width: 100%; height: 300px; object-fit: cover; border-radius: 4px; }
+        .movie-card h3 { font-size: 1rem; margin: 10px 0 5px; }
+        .movie-card p { font-size: 0.85rem; color: #666; margin: 0; }
+        footer { background: #1a1a1a; color: #fff; text-align: center; padding: 1rem; margin-top: 40px; }
+        video { width: 100%; max-width: 900px; background: #000; border-radius: 6px; }
+    </style>

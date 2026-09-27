@@ -1,0 +1,50 @@
+# ===== Виртуальное окружение =====
+venv/
+env/
+.venv/
+ENV/
+
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# ===== Django =====
+db.sqlite3
+db.sqlite3-journal
+*.log
+local_settings.py
+
+# ===== Медиа и статика (загружаемые пользователем файлы) =====
+media/
+staticfiles/
+static_root/
+
+# ===== IDE и редакторы =====
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ===== Операционные системы =====
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== Переменные окружения и секреты =====
+.env
+.env.local
+secrets.json
+
+# ===== Тесты и покрытие =====
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
